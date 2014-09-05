@@ -25,7 +25,9 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-TermColor.parse("<red>strings</red>")  # => \e[31mstrings\e[0m
+require "termcolorlight"
+
+TermColorLight.parse("<red>strings</red>")  # => \e[31mstrings\e[0m
 "<red>strings</red>".termcolor  # a ditto
 
 str = "<div>container</div>"
