@@ -4,7 +4,7 @@ This gem is library that convert color tags (e.g. `<red>str</red>` ) to
 ansicolor(vt100 escape sequence).
 
 Lightweight version of TermColor.gem.
-No use other gems, it is very simply.
+Not use other gems, it is very simple and very fast.
 
 ## Installation
 
@@ -46,6 +46,52 @@ on_black, on_red, on_green, on_yellow, on_blue, on_magenta, on_cyan, on_white, o
 # decorations
 bold, dark, underline, underscore, blink, reverse, concealed
 ```
+
+## Benchmark
+
+### Code
+
+```ruby
+require "termcolor"
+require "termcolorlight"
+require "benchmark"
+
+n = 100000
+Benchmark.bm(20) do |bm|
+  bm.report "TermColor.parse" do
+    n.times do
+      TermColor.parse("<red>red</red>")
+    end
+  end
+  bm.report "TermColorLight.parse" do
+    n.times do
+      TermColorLight.parse("<red>red</red>")
+    end
+  end
+end
+```
+
+### Results
+
+> Performed by OSX. 
+
+Use ruby 2.0.0p451
+
+```
+                           user     system      total        real
+TermColor.parse       13.770000   5.830000  19.600000 ( 19.595587)
+TermColorLight.parse   2.880000   0.010000   2.890000 (  2.899383)
+```
+
+Use ruby 2.2.0 (2014-08-20 trunk 47225 [x86_64-darwin13])
+
+```
+                           user     system      total        real
+TermColor.parse       12.960000   4.720000  17.680000 ( 17.674688)
+TermColorLight.parse   0.850000   0.000000   0.850000 (  0.853439)
+```
+
+Oops...
 
 ## Contributing
 
