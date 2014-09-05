@@ -1,4 +1,4 @@
-# Termcolorlight
+# TermColorLight
 
 This gem is library that convert color tags (e.g. `<red>str</red>` ) to
 ansicolor(vt100 escape sequence).
