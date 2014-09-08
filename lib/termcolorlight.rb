@@ -6,7 +6,7 @@
 require "strscan"
 
 module TermColorLight
-  extend self
+  module_function
 
   VERSION = "1.0.0"
 
