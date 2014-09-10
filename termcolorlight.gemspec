@@ -14,11 +14,9 @@ Gem::Specification.new do |spec|
   spec.email         = ["2nd.leaf@gmail.com"]
   spec.summary       = "convert color tags to ansicolor library"
   spec.description = <<-EOS
-This gem is library that convert color tags (e.g. `<red>str</red>` ) to
-ansicolor(vt100 escape sequence).
-
-Lightweight version of TermColor.gem.
-No use other gems, it is very simply.
+This gem is library that convert color tags (e.g. <red>str</red>) to
+ansicolor(vt100 escape sequence). And this's lightweight version of
+TermColor.gem without other gems. In addition process spedd is surprisingly fast.
   EOS
   spec.homepage      = "http://github.com/whiteleaf7/termcolorlight"
   spec.license       = "MIT"
@@ -28,3 +26,4 @@ No use other gems, it is very simply.
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
 end
+
