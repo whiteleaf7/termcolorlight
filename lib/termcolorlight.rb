@@ -8,7 +8,7 @@ require "strscan"
 module TermColorLight
   module_function
 
-  VERSION = "1.0.1"
+  VERSION = "1.1.0"
 
   TAGS = {
     # foreground colors
@@ -30,7 +30,6 @@ module TermColorLight
 
   def parse(str)
     stack = []
-    current_tag = ""
     ss = StringScanner.new(str.to_s)
     buffer = ""
     until ss.eos?
@@ -78,8 +77,10 @@ module TermColorLight
     buf
   end
 
-  def strip_tag(str)
-    TermColorLight.unescape(str.gsub(/<.+?>/, ""))
+  def strip_tag(str, do_unescape = true)
+    result = str.gsub(/<.+?>/, "")
+    result = TermColorLight.unescape(result) if do_unescape
+    result
   end
 
   def create_escape_sequence(indexes)   # :nodoc:

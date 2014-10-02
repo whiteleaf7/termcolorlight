@@ -245,9 +245,14 @@ describe TermColorLight do
   end
 
   describe ".strip_tag" do
-    it do
+    it "should be strop tag and unescaped entity" do
       expect(TermColorLight.strip_tag("<red>&quot;&apos;foo&amp;bar &lt;&gt;</red>"))
         .to eq %!"'foo&bar <>!
+    end
+
+    it "shoul be strip tag and NOT unescaped entity" do
+      expect(TermColorLight.strip_tag("<red>&quot;&apos;foo&amp;bar &lt;&gt;</red>", false))
+        .to eq "&quot;&apos;foo&amp;bar &lt;&gt;"
     end
   end
 end

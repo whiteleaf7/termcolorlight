@@ -29,8 +29,17 @@ TermColorLight.parse("<red>strings</red>")  # => \e[31mstrings\e[0m
 "<red>strings</red>".termcolor  # a ditto
 
 str = "<div>container</div>"
-"<bold><green>#{str.escape}</green></bold>"  # => \e[1m\e[32m<div>container</div>\e[0m\e[1m\e[0m
+"<bold><green>#{str.escape}</green></bold>".termcolor  # => \e[1m\e[32m<div>container</div>\e[0m\e[1m\e[0m
 ```
+
+```ruby
+require "termcolorlight/html"
+str = "<div>container</div>"
+TermColorLight.to_html("<bold><green>#{str.escape}</green></bold>")
+# => <span style="font-weight:bold"><span style="color:lime">&lt;div&gt;container&lt;/div&gt;</span></span>
+```
+
+![HTML ScreenCapture](html_ss.png)
 
 You can use the following tags.
 
@@ -93,6 +102,13 @@ TermColorLight.parse   0.850000   0.000000   0.850000 (  0.853439)
 ```
 
 Oops...
+
+## Changelogs
+
+### version 1.1.0 (2014/10/03)
+
++ add a method **TermColorLight.to_html**
+	- Perfect emuration of terminal
 
 ## Contributing
 
