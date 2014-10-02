@@ -128,6 +128,11 @@ describe TermColorLight do
             .to eq '<span style="font-weight:bold"><span style="color:lime"><span style="color:#333;background:lime">str</span></span></span>'
         end
       end
+
+      it do
+        expect(TermColorLight.to_html("(e.g. `narou <bold><yellow>d</yellow></bold> n4259s', `narou <bold><yellow>fr</yellow></bold> musyoku')"))
+          .to eq '(e.g. `narou <span style="font-weight:bold"><span style="color:yellow">d</span></span> n4259s\', `narou <span style="font-weight:bold"><span style="color:yellow">fr</span></span> musyoku\')'
+      end
     end
 
     context "give entities" do

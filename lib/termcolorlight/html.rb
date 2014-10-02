@@ -93,6 +93,9 @@ module TermColorLight
         styles << decoration if decoration
         buffer.concat("<span style=\"#{styles.join(";")}\">")
         buffer.concat(parse_for_html(ss, tmp_fg, tmp_bg, tmp_intensity, tmp_reverse, tag))
+        unless parent
+          @@before_fg_color = @@before_bg_color = nil
+        end
       when ss.scan(/<\/([a-z_]+?)>/i)
         tag = ss[1].downcase
         if tag != parent

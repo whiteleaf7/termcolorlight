@@ -8,7 +8,7 @@ require "strscan"
 module TermColorLight
   module_function
 
-  VERSION = "1.1.0"
+  VERSION = "1.1.1"
 
   TAGS = {
     # foreground colors
